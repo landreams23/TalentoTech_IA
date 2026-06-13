@@ -21,8 +21,19 @@ patrones de crecimiento que sirvan de base para decisiones informadas.
 
 > 🔗 Versión publicada: _(se actualizará con el enlace de GitHub Pages)_
 
-El dashboard estático presenta los principales hallazgos con gráficos
-interactivos.
+El dashboard estático (carpeta [docs/](docs/)) presenta los principales hallazgos con
+gráficos interactivos (Plotly.js) e incluye un **catálogo de productos** con sus beneficios.
+
+**Verlo localmente:** abre directamente `docs/index.html` en el navegador (los datos van
+embebidos, no requiere servidor).
+
+**Publicarlo en GitHub Pages:** en *Settings → Pages*, selecciona la rama `main` y la carpeta
+`/docs`. El sitio quedará disponible en `https://<usuario>.github.io/<repositorio>/`.
+
+## 📄 Informe
+
+El informe del proyecto está en [informe/](informe/):
+`Informe_Proyecto_IA_Fuxion.pdf` (versión imprimible) e `informe.md` (versión Markdown).
 
 ## 🗂️ Estructura del repositorio
 
