@@ -1,148 +1,139 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8" />
-<title>Informe — Análisis de datos Fuxion</title>
-<style>
-  @page { size: A4; margin: 18mm 16mm; }
-  * { box-sizing: border-box; }
-  body { font-family: "Segoe UI", Arial, sans-serif; color: #1d2b3a; line-height: 1.55; font-size: 11pt; }
-  h1,h2,h3 { color: #0a6b5e; line-height: 1.2; }
-  h1 { font-size: 22pt; margin: 0 0 4px; }
-  h2 { font-size: 15pt; margin: 22px 0 8px; border-bottom: 2px solid #d7ece8; padding-bottom: 4px; }
-  h3 { font-size: 12.5pt; margin: 14px 0 4px; color: #0e9594; }
-  p { margin: 6px 0; text-align: justify; }
-  .portada { text-align: center; padding: 30px 0 18px; border-bottom: 3px solid #16C172; margin-bottom: 18px; }
-  .portada .sub { color: #0e9594; font-weight: 600; font-size: 12pt; }
-  .portada .meta { color: #64748b; font-size: 10pt; margin-top: 10px; }
-  .tag { display:inline-block; background:#e7f7f2; color:#0a8754; padding:4px 12px; border-radius:999px; font-size:9.5pt; font-weight:600; margin-top:8px;}
-  blockquote { background:#f1f8f7; border-left:4px solid #16C172; margin:10px 0; padding:8px 14px; color:#0a4a42; }
-  figure { margin: 12px 0; text-align: center; page-break-inside: avoid; }
-  figure img { max-width: 100%; border: 1px solid #e2e8f0; border-radius: 8px; }
-  figcaption { font-size: 9pt; color: #64748b; margin-top: 4px; font-style: italic; }
-  ul, ol { margin: 6px 0 6px 18px; }
-  li { margin: 3px 0; }
-  table { width:100%; border-collapse: collapse; font-size: 9.5pt; margin: 8px 0; }
-  th,td { border:1px solid #d7ece8; padding:5px 8px; text-align:right; }
-  th { background:#0e9594; color:#fff; } td:first-child, th:first-child { text-align:left; }
-  .kpis { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
-  .kpi { flex:1 1 150px; background:#f1f8f7; border-radius:10px; padding:10px 14px; }
-  .kpi b { display:block; font-size:15pt; color:#0a6b5e; }
-  .kpi span { font-size:9pt; color:#64748b; }
-  .pagebreak { page-break-before: always; }
-  .footer { margin-top:18px; border-top:1px solid #d7ece8; padding-top:8px; font-size:8.5pt; color:#94a3b8; text-align:center; }
-</style>
-</head>
-<body>
-
-<div class="portada">
-  <div class="tag">Proyecto Final · Inteligencia Artificial — Nivel Explorador (TalentoTech)</div>
-  <h1>Análisis de datos para la transformación productiva de un emprendimiento de bienestar</h1>
-  <div class="sub">Línea temática: transformación productiva mediante ciencia y tecnología</div>
-  <div class="meta">Caso de estudio: emprendimiento de productos de bienestar (Fuxion) · Junio de 2026</div>
-</div>
-
-<h2>Resumen ejecutivo</h2>
-<p>Este proyecto aplica las primeras fases del ciclo de vida de un proyecto de <i>Machine
-Learning</i> —comprensión del negocio, comprensión de los datos y preparación/análisis
-exploratorio— a los datos reales de 2025 de un emprendimiento de distribución de productos de
-bienestar. A partir de un libro de Excel mantenido manualmente se construyó un proceso
-reproducible de limpieza, anonimización y análisis para responder qué productos, ciudades y
-momentos concentran la mayor rentabilidad.</p>
-
-<div class="kpis">
-  <div class="kpi"><b>23</b><span>pedidos · 68 unidades</span></div>
-  <div class="kpi"><b>$8,3 M</b><span>ingreso (precio catálogo)</span></div>
-  <div class="kpi"><b>16,7 %</b><span>margen potencial</span></div>
-  <div class="kpi"><b>$2,4 M</b><span>capital en inventario</span></div>
-  <div class="kpi"><b>$2,85 M</b><span>ganancia total del negocio</span></div>
-</div>
-
-<h2>1. Introducción teórica: el ciclo de vida de un proyecto de ML</h2>
-<p>Un proyecto de <i>Machine Learning</i> no comienza con algoritmos, sino con el
-entendimiento del problema y los datos. La metodología <b>CRISP-DM</b> organiza el ciclo en
-seis fases: (1) comprensión del negocio, (2) comprensión de los datos, (3) preparación de los
-datos, (4) modelado, (5) evaluación y (6) despliegue. El <b>análisis exploratorio de datos
-(EDA)</b> es el núcleo de las fases 1 a 3. Este trabajo, de Nivel Explorador, abarca
-precisamente esas tres fases, dejando los datos listos para un futuro modelo predictivo.</p>
-
-<h2>2. Selección del contexto y problema</h2>
-<p>El caso es un emprendimiento real de distribución de productos de bienestar con varias
-fuentes de ingreso: reventa de productos, comisión por venta directa, comisión por afiliación
-y venta de inventario en distintas ciudades. Las decisiones se toman de forma intuitiva, lo
-que genera capital inmovilizado, riesgo de vencimiento y desconocimiento de la rentabilidad
-real.</p>
-<blockquote><b>Pregunta de negocio:</b> ¿Qué productos, ciudades y momentos concentran la
-mayor rentabilidad, y qué decisiones permitirían maximizar las ganancias del emprendimiento?</blockquote>
-
-<h2>3. Datos y stakeholders</h2>
-<p><b>Stakeholders:</b> la emprendedora, la red de afiliados, los clientes finales y el
-analista de datos. <b>Fuente:</b> libro de Excel con 10 hojas (pedidos, inventario por ciudad,
-ventas directas, afiliaciones, gastos y resumen de ganancias).</p>
-<blockquote><b>Privacidad:</b> los datos contienen nombres reales de clientes; se anonimizan
-(identificadores) antes de publicar cualquier resultado.</blockquote>
-
-<h2>4. Metodología (preparación de los datos)</h2>
-<ul>
-  <li><b>Evaluación de calidad:</b> celdas combinadas, encabezados repetidos, subtotales,
-  nombres inconsistentes, valores monetarios como texto y datos personales.</li>
-  <li><b>Limpieza:</b> reconstrucción de líneas de pedido, unificación de nombres
-  (p. ej. <code>NOCARBO-T→NOCARB-T</code>, <code>MANIZALEZ→MANIZALES</code>) y tipado.</li>
-  <li><b>Datos ausentes:</b> los <code>NaN</code> por celdas combinadas se completaron por
-  propagación; los ausentes legítimos (stock no vendido) se conservaron.</li>
-  <li><b>Anonimización:</b> identificadores en lugar de nombres.</li>
-  <li><b>Normalización:</b> de categorías y Min-Max de variables numéricas.</li>
-</ul>
-<p>De una hoja desordenada de 110 filas se obtuvo una tabla ordenada de <b>49 líneas de
-pedido</b> sin valores ausentes.</p>
-
-<div class="pagebreak"></div>
-<h2>5. Análisis exploratorio</h2>
-
-<h3>5.1 Análisis univariado</h3>
-<figure><img src="figuras/univariado.png" alt="univariado" />
-<figcaption>Distribuciones: unidades por producto, pedidos por ciudad, margen y estado de inventario.</figcaption></figure>
-<p>Thermo T3 domina la demanda; la operación se concentra en Manizales; el margen por línea
-se agrupa alrededor del 16 %.</p>
-
-<h3>5.2 Análisis bivariado</h3>
-<figure><img src="figuras/bivariado.png" alt="bivariado" />
-<figcaption>Relaciones: ingreso por producto, margen por ciudad, evolución mensual y costo vs. precio.</figcaption></figure>
-<p>Manizales aporta la mayoría del margen; la serie mensual muestra los meses pico; y existe
-una relación lineal estable entre costo y precio de catálogo.</p>
-
-<h3>5.3 Análisis multivariado</h3>
-<figure><img src="figuras/multivariado.png" alt="multivariado" />
-<figcaption>Matriz de correlación y mapa de calor producto × ciudad.</figcaption></figure>
-<p>Las variables monetarias están fuertemente correlacionadas; el mapa de calor confirma la
-dependencia de Manizales como mercado principal.</p>
-
-<h3>5.4 Inventario y riesgo de vencimiento</h3>
-<figure><img src="figuras/vencimientos.png" alt="vencimientos" />
-<figcaption>Días para el vencimiento (rojo = ya vencido).</figcaption></figure>
-<p>Hay $2,4 M de capital en inventario disponible y productos ya vencidos sin vender, que
-representan pérdida directa de capital.</p>
-
-<h3>5.5 Composición de ingresos</h3>
-<figure><img src="figuras/ingresos.png" alt="ingresos" style="max-width:62%" />
-<figcaption>Comisión venta directa (66 %), venta de stock (27 %), comisión afiliación (7 %).</figcaption></figure>
-
-<h2>6. Hallazgos y recomendaciones</h2>
-<p><b>Hallazgos:</b> (1) producto estrella Thermo T3; (2) alta dependencia de Manizales
-(~80 % del ingreso); (3) margen estable (~16–20 %); (4) capital en riesgo por inventario
-vencido; (5) afiliación subutilizada.</p>
-<p><b>Recomendaciones:</b> gestionar el inventario por vencimiento (FEFO); reforzar productos
-y ciudad ganadores pero diversificar geográficamente; impulsar la afiliación como ingreso
-recurrente; e institucionalizar el dato para un futuro modelo predictivo de demanda.</p>
-
-<h2>7. Conclusiones</h2>
-<p>El EDA cumple las fases 1–3 del ciclo de vida de ML y convierte un registro manual y
-desordenado en conocimiento accionable. El emprendimiento cuenta ahora con un diagnóstico
-basado en evidencia y un tablero interactivo, sentando las bases para futuras fases de
-modelado predictivo.</p>
-
-<div class="footer">Documento generado a partir del análisis reproducible en
-<code>notebooks/analisis_fuxion.ipynb</code> · Tablero interactivo en <code>docs/</code></div>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><style>
+ @page{size:A4;margin:16mm}* {box-sizing:border-box}
+ body{font-family:Calibri,Arial,sans-serif;color:#1d2b3a;font-size:11pt;line-height:1.5}
+ h1{color:#0a6b5e;font-size:16pt;border-bottom:2px solid #d7ece8;padding-bottom:4px;margin:22px 0 8px}
+ h2{color:#0e9594;font-size:13pt;margin:16px 0 6px}
+ p{margin:6px 0;text-align:justify}
+ .cover{text-align:center;padding-top:70px;page-break-after:always}
+ .cover .tag{color:#0e9594;font-weight:bold}
+ .cover .t{font-size:24pt;color:#0a6b5e;font-weight:bold;margin:18px 0}
+ .cover .ph{margin-top:50px;text-align:left;display:inline-block;line-height:2.2}
+ img.code{width:100%;border-radius:8px;margin:8px 0;page-break-inside:avoid}
+ img.fig{width:88%;display:block;margin:10px auto;border:1px solid #e2e8f0;border-radius:6px;page-break-inside:avoid}
+ .cap{font-size:9pt;color:#666;font-style:italic;text-align:center;margin:2px 0 12px}
+ .note{background:#f1f8f7;border-left:4px solid #16C172;padding:8px 12px;margin:10px 0;color:#0a4a42;font-weight:bold}
+ .sub{font-weight:bold;color:#0a6b5e;margin-top:8px}
+ ul{margin:6px 0 6px 18px} li{margin:3px 0}
+ .pb{page-break-before:always}
+</style></head><body>
+<div class="cover">
+   <div class="tag">PROYECTO FINAL DE INTELIGENCIA ARTIFICIAL — Nivel Explorador (TalentoTech)</div>
+   <div class="t">Analisis de datos para la transformacion productiva de un emprendimiento de bienestar</div>
+   <div><i>Linea tematica: transformacion productiva mediante ciencia y tecnologia</i></div>
+   <div>Caso de estudio: emprendimiento de productos de bienestar (Fuxion)</div>
+   <div class="ph">Estudiante / grupo: ______________________________<br>
+   Documento de identidad: __________________________<br>
+   Docente: _________________________________________<br>
+   Programa / ficha: ________________________________<br>
+   Ciudad y fecha: __________________________________</div>
+ </div>
+<h1>Resumen ejecutivo</h1>
+<p>Este documento desarrolla las primeras fases del ciclo de vida de un proyecto de Machine Learning aplicadas a los datos reales de 2025 de un emprendimiento de productos de bienestar (Fuxion). A partir de un libro de Excel mantenido manualmente, se construyo un proceso reproducible —documentado paso a paso con el codigo— de carga, evaluacion de calidad, limpieza, tratamiento de datos ausentes, anonimizacion, normalizacion y analisis exploratorio (univariado, bivariado y multivariado).</p>
+<p>El objetivo es responder la pregunta central del negocio: que productos, ciudades y momentos concentran la mayor rentabilidad, para tomar decisiones informadas y dejar la base lista para un futuro modelo predictivo.</p>
+<ul><li>23 pedidos analizados, 68 unidades, 15 productos en 5 ciudades.</li><li>Ingreso a precio de catalogo: $8.319.600 — margen potencial 16,7%.</li><li>Ticket promedio por pedido: $361.722.</li><li>Capital inmovilizado en inventario disponible: $2.423.300 (con productos ya vencidos).</li><li>Ganancia total del negocio en 2025: $2.847.091 (todas las fuentes).</li></ul>
+<h1>1. Introduccion teorica: el ciclo de vida de un proyecto de ML</h1>
+<p>Un proyecto de Machine Learning no comienza programando algoritmos, sino entendiendo el problema y los datos. La metodologia CRISP-DM (Cross Industry Standard Process for Data Mining) organiza ese ciclo en seis fases:</p>
+<ul><li>Comprension del negocio: definir el problema y los objetivos.</li><li>Comprension de los datos: recolectar y explorar las fuentes disponibles.</li><li>Preparacion de los datos: limpiar, transformar y normalizar.</li><li>Modelado: entrenar algoritmos de aprendizaje.</li><li>Evaluacion: medir el desempeno del modelo.</li><li>Despliegue: poner el modelo en produccion.</li></ul>
+<p>El analisis exploratorio de datos (EDA) es el nucleo de las fases 1 a 3: mediante estadistica descriptiva y visualizacion busca patrones, tendencias, relaciones y anomalias. Este trabajo, de Nivel Explorador, abarca precisamente las fases 1, 2 y 3, dejando los datos comprendidos y preparados para un futuro modelo.</p>
+<h1>2. Seleccion del contexto y problema</h1>
+<p>El caso es un emprendimiento real de distribucion de productos de bienestar (marca Fuxion) que combina varias fuentes de ingreso: reventa de productos (margen sobre el precio de catalogo), comision por venta directa, comision por afiliacion de nuevas personas a la red, y venta de inventario en distintas ciudades.</p>
+<p>Problema detectado: las decisiones de compra de inventario, precios, enfoque geografico y crecimiento de la red se toman de forma intuitiva, sin apoyo en los datos historicos. Esto genera capital inmovilizado, riesgo de vencimiento de productos y desconocimiento de la rentabilidad real.</p>
+<div class="note">Pregunta de negocio: ¿Que productos, ciudades y momentos concentran la mayor rentabilidad, y que decisiones permitirian maximizar las ganancias del emprendimiento?</div>
+<h1>3. Identificacion de datos y stakeholders</h1>
+<p>Stakeholders (partes interesadas): la emprendedora o duena del negocio (decisiones de compra y enfoque), la red de afiliados (que planes y productos funcionan mejor), los clientes finales (disponibilidad de los productos que demandan) y el analista de datos (convertir los registros en decisiones).</p>
+<p>Fuente de datos: un libro de Excel de gestion (seguimiento_fuxion_2025.xlsx) con 10 hojas que cubren pedidos, inventario por ciudad, ventas directas, afiliaciones, gastos y un resumen de ganancias.</p>
+<div class="note">Privacidad: los datos contienen nombres reales de clientes. En este proyecto se anonimizan (se reemplazan por identificadores) y se elimina el texto libre con datos personales antes de publicar cualquier resultado.</div>
+<h1>4. Metodologia y desarrollo del codigo</h1>
+<p>Toda la preparacion y el analisis se realizaron en Python (pandas y numpy) dentro de un Jupyter Notebook. A continuacion se documenta el codigo por etapas, con la explicacion de cada decision.</p>
+<h2>4.1 Entorno de trabajo y carga de datos</h2>
+<p>Se importan las librerias, se define un estilo visual consistente y se localiza automaticamente la raiz del proyecto para que el notebook funcione tanto desde la raiz como desde la carpeta de notebooks.</p>
+<img class="code" src="figuras/codigo/cod_00.png">
+<div class="cap">Configuracion del entorno y rutas del proyecto.</div>
+<p>Se cargan todas las hojas del libro y se cuenta cuantas filas con datos tiene cada una, para tener una vision general de las fuentes disponibles.</p>
+<img class="code" src="figuras/codigo/cod_01.png">
+<div class="cap">Inventario de hojas del libro de Excel.</div>
+<h2>4.2 Evaluacion de la calidad de los datos</h2>
+<p>Al ser un libro mantenido manualmente, presenta los problemas tipicos de los datos del mundo real. Se inspecciona la hoja principal de pedidos para evidenciarlos. Por privacidad, en la vista se ocultan las columnas con nombres de clientes.</p>
+<img class="code" src="figuras/codigo/cod_02.png">
+<div class="cap">Inspeccion de la hoja de pedidos en crudo (sin exponer datos personales).</div>
+<p>Problemas detectados: (1) celdas combinadas que dejan valores NaN; (2) encabezados repetidos entre bloques de pedidos; (3) filas de subtotales mezcladas con el detalle; (4) nombres de productos inconsistentes (NOCARB-T / NOCARBO-T, VITA XTRA T / VITA XTRA T+, KIT DETOX / DETOX); (5) ciudades inconsistentes (MANIZALES / MANIZALEZ); (6) valores monetarios escritos como texto; (7) datos personales de clientes.</p>
+<h2>4.3 Funciones de normalizacion y anonimizacion</h2>
+<p>Se definen utilidades reutilizables para estandarizar texto, unificar nombres de productos y ciudades, convertir valores a numero y anonimizar nombres reemplazandolos por identificadores estables.</p>
+<img class="code" src="figuras/codigo/cod_03.png">
+<div class="cap">Funciones de limpieza, normalizacion de categorias y anonimizacion.</div>
+<h2>4.4 Limpieza de los pedidos</h2>
+<p>El reto principal es reconstruir las lineas de pedido a partir de los bloques con celdas combinadas. La estrategia: eliminar los encabezados repetidos; asignar un identificador de pedido (cada pedido trae su numero de orden en la primera linea); propagar (forward-fill) los datos a nivel de pedido dentro de cada bloque; y conservar solo las filas con un producto real, descartando los subtotales.</p>
+<img class="code" src="figuras/codigo/cod_04.png">
+<div class="cap">Reconstruccion de las lineas de pedido (de 110 filas desordenadas a una tabla ordenada).</div>
+<h2>4.5 Limpieza del inventario</h2>
+<p>Se unifican las tres hojas de inventario (Manizales, Mocoa y PRO1) en una sola tabla; se deriva el estado de cada producto (Vendido, Consumo, Disponible, Producto gratis) y los dias para su vencimiento. Por privacidad, la columna de observaciones (texto libre con nombres de personas) se descarta tras extraer el estado.</p>
+<img class="code" src="figuras/codigo/cod_05.png">
+<div class="cap">Unificacion del inventario, derivacion del estado y dias para vencer.</div>
+<h2>4.6 Venta directa, afiliaciones e ingresos</h2>
+<p>Se limpian las comisiones por venta directa, las afiliaciones (anonimizando los nombres) y se extrae la composicion de ganancias desde la hoja de resumen.</p>
+<img class="code" src="figuras/codigo/cod_06.png">
+<div class="cap">Limpieza de venta directa, afiliaciones e ingresos.</div>
+<h2>4.7 Tratamiento de datos ausentes</h2>
+<p>Tras la limpieza se revisan los valores ausentes. Los NaN originados por celdas combinadas se completaron por propagacion; los ausentes legitimos (por ejemplo, la fecha de venta de un producto aun en stock) se conservan porque representan informacion real del negocio. No se imputa a ciegas.</p>
+<img class="code" src="figuras/codigo/cod_07.png">
+<div class="cap">Verificacion de valores ausentes por columna.</div>
+<h2>4.8 Anonimizacion de datos personales</h2>
+<p>Los nombres de clientes y afiliados son datos personales; se reemplazan por identificadores irreversibles conservando la utilidad analitica sin exponer identidades.</p>
+<img class="code" src="figuras/codigo/cod_08.png">
+<div class="cap">Demostracion de la anonimizacion aplicada.</div>
+<h2>4.9 Normalizacion</h2>
+<p>Se distinguen dos tipos de normalizacion: la de categorias (unificacion de nombres de productos y ciudades, ya aplicada) y la de variables numericas (escala Min-Max a rango 0-1) para poder compararlas en el analisis multivariado.</p>
+<img class="code" src="figuras/codigo/cod_09.png">
+<div class="cap">Verificacion de categorias unificadas y normalizacion Min-Max.</div>
+<div class="pb"></div>
+<h1>5. Resultados del analisis exploratorio</h1>
+<h2>5.1 Analisis univariado</h2>
+<p>Se estudia cada variable por separado para entender su distribucion.</p>
+<img class="code" src="figuras/codigo/cod_10.png">
+<div class="cap">Codigo de los graficos univariados.</div>
+<img class="fig" src="figuras/univariado.png">
+<div class="cap">Figura 1. Unidades por producto, pedidos por ciudad, distribucion del margen y estado del inventario.</div>
+<p>Lecturas: THERMO T3 domina la demanda en unidades, seguido por DETOX y ON; la operacion esta muy concentrada en Manizales; el margen por linea se agrupa alrededor del 16%; y el inventario combina productos vendidos, disponibles, de consumo propio y gratuitos.</p>
+<h2>5.2 Analisis bivariado</h2>
+<p>Se relacionan pares de variables para descubrir asociaciones.</p>
+<img class="code" src="figuras/codigo/cod_11.png">
+<div class="cap">Codigo de los graficos bivariados.</div>
+<img class="fig" src="figuras/bivariado.png">
+<div class="cap">Figura 2. Ingreso por producto, margen por ciudad, evolucion mensual y costo vs. precio.</div>
+<p>Lecturas: el ingreso confirma a THERMO T3 como motor del negocio; Manizales aporta la mayoria del margen; la serie mensual muestra los meses pico; y existe una relacion lineal estable entre costo y precio de catalogo (el margen porcentual es similar entre productos).</p>
+<h2>5.3 Analisis multivariado</h2>
+<p>Se analizan varias variables a la vez: correlaciones y la relacion producto x ciudad.</p>
+<img class="code" src="figuras/codigo/cod_12.png">
+<div class="cap">Codigo de la matriz de correlacion y el mapa de calor.</div>
+<img class="fig" src="figuras/multivariado.png">
+<div class="cap">Figura 3. Matriz de correlacion y mapa de calor de ingreso por producto y ciudad.</div>
+<p>Lecturas: las variables monetarias (precio, costo, margen, puntos) estan fuertemente correlacionadas entre si; el mapa de calor producto x ciudad revela que productos sostienen cada plaza y confirma la dependencia de Manizales como mercado principal.</p>
+<h2>5.4 Inventario y riesgo de vencimiento</h2>
+<p>Uno de los hallazgos mas accionables: el capital inmovilizado y los productos por vencer.</p>
+<img class="code" src="figuras/codigo/cod_13.png">
+<div class="cap">Codigo del analisis de vencimientos.</div>
+<img class="fig" src="figuras/vencimientos.png">
+<div class="cap">Figura 4. Dias para el vencimiento por producto (en rojo, los ya vencidos).</div>
+<p>Hay $2.423.300 de capital en inventario disponible y productos que ya se vencieron sin venderse (Liquid Fiber, Off, Thermo T3), lo que representa una perdida directa de capital.</p>
+<h2>5.5 Composicion de los ingresos</h2>
+<img class="code" src="figuras/codigo/cod_14.png">
+<div class="cap">Codigo de la composicion de ingresos.</div>
+<img class="fig" src="figuras/ingresos.png">
+<div class="cap">Figura 5. Composicion de las ganancias del negocio por fuente.</div>
+<p>La comision por venta directa es la principal fuente de ganancia (66%), seguida por la venta de stock (27%); la afiliacion aun aporta poco (7%): una oportunidad de crecimiento.</p>
+<h2>5.6 Exportacion de datos para el tablero</h2>
+<p>Finalmente se guardan los datos limpios y anonimizados (CSV) y un archivo JSON con los agregados que alimentan el tablero interactivo publicado en GitHub Pages.</p>
+<img class="code" src="figuras/codigo/cod_15.png">
+<div class="cap">Exportacion de datos procesados y del tablero.</div>
+<div class="note">Tablero interactivo publicado: https://landreams23.github.io/TalentoTech_IA/</div>
+<h1>6. Hallazgos y recomendaciones</h1>
+<p class="sub">Hallazgos</p>
+<ul><li>Producto estrella: THERMO T3 lidera demanda, ingreso y presencia en pedidos.</li><li>Alta dependencia geografica: Manizales concentra cerca del 80% de los ingresos.</li><li>Margen estable (~16-20%): la rentabilidad se gana por volumen y rotacion, no por diferencias de margen.</li><li>Capital en riesgo: hay inventario inmovilizado y productos ya vencidos sin vender.</li><li>Ingresos concentrados en la comision por venta directa; la afiliacion esta subutilizada.</li></ul>
+<p class="sub">Recomendaciones</p>
+<ul><li>Gestionar el inventario por vencimiento (FEFO): priorizar la venta de lo proximo a vencer y ajustar las compras a la rotacion real de cada producto.</li><li>Reforzar los productos y la ciudad ganadores, pero diversificar geograficamente para reducir la dependencia de Manizales.</li><li>Impulsar la afiliacion como fuente de ingreso recurrente y escalable.</li><li>Institucionalizar el dato para construir, en una fase siguiente, un modelo predictivo de demanda.</li></ul>
+<h1>7. Conclusiones</h1>
+<p>El analisis exploratorio cumple las fases 1 a 3 del ciclo de vida de Machine Learning y convierte un registro manual y desordenado en conocimiento accionable. El emprendimiento cuenta ahora con un diagnostico basado en evidencia y un tablero interactivo para el seguimiento continuo, sentando las bases para futuras fases de modelado predictivo de la demanda.</p>
+<h1>Anexos</h1>
+<ul><li>Notebook del analisis: notebooks/analisis_fuxion.ipynb</li><li>Tablero interactivo: https://landreams23.github.io/TalentoTech_IA/</li><li>Repositorio: https://github.com/landreams23/TalentoTech_IA</li><li>Datos procesados (anonimizados): carpeta data/processed/</li></ul>
+<p>Reproducir el analisis y regenerar las graficas: crear el entorno (python -m venv .venv), instalar requirements.txt y ejecutar el notebook (Kernel &gt; Restart &amp; Run All). Las figuras se guardan en informe/figuras/ y los datos del tablero en docs/data/.</p>
+</body></html>
