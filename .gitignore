@@ -1,0 +1,26 @@
+# --- Notas de trabajo locales (no publicar) ---
+CLAUDE.md
+
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# --- Datos crudos con informacion personal (NO subir) ---
+data/raw/*
+!data/raw/.gitkeep
+
+# --- Archivos temporales del sistema / editores ---
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+.vscode/
+.idea/
