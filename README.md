@@ -19,7 +19,7 @@ patrones de crecimiento que sirvan de base para decisiones informadas.
 
 ## 📊 Dashboard interactivo
 
-> 🔗 Versión publicada: _(se actualizará con el enlace de GitHub Pages)_
+> 🔗 **Versión publicada:** https://landreams23.github.io/TalentoTech_IA/
 
 El dashboard estático (carpeta [docs/](docs/)) presenta los principales hallazgos con
 gráficos interactivos (Plotly.js) e incluye un **catálogo de productos** con sus beneficios.
@@ -28,7 +28,7 @@ gráficos interactivos (Plotly.js) e incluye un **catálogo de productos** con s
 embebidos, no requiere servidor).
 
 **Publicarlo en GitHub Pages:** en *Settings → Pages*, selecciona la rama `main` y la carpeta
-`/docs`. El sitio quedará disponible en `https://<usuario>.github.io/<repositorio>/`.
+`/docs`, y guarda.
 
 ## 📄 Informe
 
