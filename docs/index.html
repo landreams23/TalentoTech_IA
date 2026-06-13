@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tablero de Negocio · Análisis de datos Fuxion</title>
+  <meta name="description" content="Análisis exploratorio de datos de un emprendimiento de bienestar Fuxion y catálogo de productos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#inicio" class="nav__brand">🌿 Bienestar <span>Data</span></a>
+      <nav class="nav__links">
+        <a href="#kpis">Resumen</a>
+        <a href="#productos">Productos</a>
+        <a href="#ciudades">Ciudades</a>
+        <a href="#tiempo">Tendencia</a>
+        <a href="#inventario">Inventario</a>
+        <a href="#catalogo">Catálogo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero__content">
+      <span class="hero__badge">Proyecto de Inteligencia Artificial · Análisis de datos</span>
+      <h1>Decisiones de negocio basadas en <span>datos</span>, no en corazonadas.</h1>
+      <p>Análisis exploratorio de los pedidos, el inventario y las afiliaciones de un
+         emprendimiento de productos de bienestar <strong>Fuxion</strong>, para identificar
+         qué productos, ciudades y momentos generan mayor rentabilidad.</p>
+      <div class="hero__cta">
+        <a href="#kpis" class="btn btn--primary">Ver el análisis</a>
+        <a href="#catalogo" class="btn btn--ghost">Conocer los productos</a>
+      </div>
+    </div>
+    <div class="hero__glow"></div>
+  </section>
+
+  <!-- KPIS -->
+  <section id="kpis" class="section">
+    <h2 class="section__title">📌 Resumen del negocio (2025)</h2>
+    <p class="section__sub">Indicadores clave calculados a partir de los datos históricos.</p>
+    <div id="kpiGrid" class="kpi-grid"></div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="section section--alt">
+    <h2 class="section__title">🏆 Productos: demanda y rentabilidad</h2>
+    <p class="section__sub">Qué productos mueven el negocio en ingreso y margen.</p>
+    <div class="grid-2">
+      <div class="card"><div id="chartProductosIngreso" class="chart"></div></div>
+      <div class="card"><div id="chartProductosMargen" class="chart"></div></div>
+    </div>
+    <div class="card card--table">
+      <h3>Detalle por producto</h3>
+      <div class="table-wrap"><table id="tablaProductos"></table></div>
+    </div>
+  </section>
+
+  <!-- CIUDADES -->
+  <section id="ciudades" class="section">
+    <h2 class="section__title">📍 Ciudades</h2>
+    <p class="section__sub">Distribución geográfica de los ingresos.</p>
+    <div class="grid-2">
+      <div class="card"><div id="chartCiudades" class="chart"></div></div>
+      <div class="card"><div id="chartCiudadesMargen" class="chart"></div></div>
+    </div>
+  </section>
+
+  <!-- TIEMPO -->
+  <section id="tiempo" class="section section--alt">
+    <h2 class="section__title">📈 Tendencia en el tiempo</h2>
+    <p class="section__sub">Evolución mensual del ingreso y el margen.</p>
+    <div class="card"><div id="chartTiempo" class="chart chart--wide"></div></div>
+  </section>
+
+  <!-- INVENTARIO -->
+  <section id="inventario" class="section">
+    <h2 class="section__title">⏳ Inventario y vencimientos</h2>
+    <p class="section__sub">El capital inmovilizado y el riesgo de productos por vencer.</p>
+    <div class="grid-2">
+      <div class="card"><div id="chartInventario" class="chart"></div></div>
+      <div class="card"><div id="chartIngresos" class="chart"></div></div>
+    </div>
+    <div class="card card--table">
+      <h3>🚨 Productos próximos a vencer o vencidos</h3>
+      <p class="muted">Prioriza su venta para no perder el capital invertido.</p>
+      <div class="table-wrap"><table id="tablaVencer"></table></div>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo" class="section section--catalog">
+    <h2 class="section__title">🛍️ Catálogo de productos</h2>
+    <p class="section__sub">Bebidas funcionales Fuxion — libres de azúcar, endulzadas con stevia.
+       Conoce sus beneficios y escríbeme para pedir el tuyo.</p>
+    <div id="filtros" class="filtros"></div>
+    <div id="catalogoGrid" class="catalogo-grid"></div>
+    <div class="cta-final">
+      <h3>¿Quieres pedir un producto o conocer la oportunidad de negocio?</h3>
+      <a id="ctaWhatsapp" href="#" class="btn btn--primary">Contáctame 💬</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Tablero construido como proyecto de análisis de datos · Datos de 2025 (anonimizados).</p>
+    <p class="muted">Distribuidora independiente Fuxion. La información de productos es referencial y no constituye consejo médico.</p>
+  </footer>
+
+  <script src="data/dashboard.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
