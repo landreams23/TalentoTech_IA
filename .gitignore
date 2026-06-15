@@ -1,3 +1,6 @@
+# --- Documento del informe (se entrega por separado; contiene datos personales) ---
+informe/
+
 # --- Entornos virtuales ---
 .venv/
 venv/

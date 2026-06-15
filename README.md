@@ -32,8 +32,8 @@ embebidos, no requiere servidor).
 
 ## 📄 Informe
 
-El informe del proyecto está en [informe/](informe/):
-`Informe_Proyecto_IA_Fuxion.pdf` (versión imprimible) e `informe.md` (versión Markdown).
+El informe del proyecto (con el detalle del código, las gráficas y los hallazgos) se
+entrega directamente al docente y **no se incluye en este repositorio público**.
 
 ## 🗂️ Estructura del repositorio
 
